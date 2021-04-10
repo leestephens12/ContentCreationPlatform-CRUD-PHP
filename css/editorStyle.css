@@ -1,12 +1,12 @@
 header {
     display: flex;
     background-color: rgb(71, 67, 67);
-    padding: 25px;
 }
 header .mainHeader {
     margin-left: 50px;
     text-decoration: none;
     color: whitesmoke;
+    line-height: 130px;
 }
 header #logout {
     color: red;

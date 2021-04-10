@@ -21,7 +21,7 @@
     $cmd->execute();
     $logos = $cmd->Fetch();
     $logo = $logos[0];
-    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height=""150>');
+    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="150">');
     $db = null;
 ?>
         <a class="mainHeader" id="admin" href="admins.php">Administrators</a>
