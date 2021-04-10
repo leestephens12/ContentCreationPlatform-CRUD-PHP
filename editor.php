@@ -4,12 +4,26 @@
         <meta charset="UTF-8">
         <title>Editor +</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/editor.css">
+        <link rel="stylesheet" href="css/editorStyle.css">
     </head>
     <body>
     <!--header and my log out so it will terminate users session-->
     <header>
-        <a href="logout.php">Log Out</a>
+        <a class="mainHeader" id="admin" href="admins.php">Administrators</a>
+        <a class="mainHeader" id="pages" href="editor.php">Pages</a>
+        <a class="mainHeader" id="logo" href="logo.php">Logo</a>
+        <a class="mainHeader" id="public" href="public-site.php">Public Site</a>
+        <a class="mainHeader" id="account" href="accountMain.php">Control Panel</a>
+        <a class="mainHeader" id="logout" href="logout.php">Log Out</a>
+<?php
+    if('location:editor.php') {
+        echo'<script>
+                var pages = document.getElementById("pages");
+                pages.style.setProperty("color", "yellow");
+                pages.style.setProperty("font-size", "135%");
+            </script>';
+    }
+?>
     </header>
     <main>
 <?php
@@ -39,7 +53,7 @@
             </tr>');
     //importing all my data from database into table
     foreach($infos as $info) {
-        echo('<tr><td><a href="viewPage.php?title='.$info['title'].'&content='.$info['content'].'">'.$info['title'].'</a></td><td><a href="addPage.php?title='.$info['title'].'&content='.$info['content'].'">Edit</a></td><td><a href="deletePage.php?title='.$info['title'].'">Delete</a></td></tr>');
+        echo('<tr><td><a href="viewPage.php?title='.$info['title'].'&content='.$info['content'].'">'.$info['title'].'</a></td><td><a href="addPage.php?title='.$info['title'].'&content='.$info['content'].'&username='.$info['username'].'">Edit</a></td><td><a href="deletePage.php?title='.$info['title'].'">Delete</a></td></tr>');
     }
     //close table
     echo('</table>');

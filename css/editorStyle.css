@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    background-color: rgb(71, 67, 67);
+    padding: 25px;
+}
+header .mainHeader {
+    margin-left: 50px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+header #logout {
+    color: red;
+}
+
+header a {
+    float: left;
+}
+body {
+    width: 98%;
+}
+main{
+    width: 75%;
+    margin: auto;
+}
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: purple;
+}
+button a{
+    color: black;
+}
+
+button {
+    background-color: white;
+}
