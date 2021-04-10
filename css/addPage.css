@@ -1,0 +1,53 @@
+html {
+    background-color: white;
+}
+body {
+    width: 98%;
+}
+header {
+    float: right;
+    position: absolute;
+    top: 5px;
+    right: 300px;
+}
+a {
+    text-decoration: none;
+}
+main {
+    border: 5px solid black;
+    font-size: 75%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 690px;
+    color: white;
+    background-color: rgb(255, 0, 200);
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10%;
+    padding: 2%;
+}
+
+#title {
+    margin-left: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    line-height: 50px;
+}
+
+main a {
+    text-decoration: none;
+    color: black;
+}
+
+
+button {
+    background-color: white;
+}
+
+#submit {
+    background-color: white;
+}

@@ -1,0 +1,36 @@
+html {
+    background-color: white;
+}
+body {
+    border: 5px solid black;
+    font-size: 75%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 690px;
+    color: white;
+    background-color: rgb(255, 0, 200);
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10%;
+    padding: 2%;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    line-height: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    background-color: white;
+}
+
+#submit {
+    background-color: white;
+}

@@ -1,0 +1,29 @@
+body {
+    width: 98%;
+}
+header {
+    float: right;
+    position: absolute;
+    top: 5px;
+    right: 300px;
+}
+a{
+    text-decoration: none;
+}
+main {
+    border: 5px solid black;
+    font-size: 75%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 690px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10%;
+    padding: 2%;
+}
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
