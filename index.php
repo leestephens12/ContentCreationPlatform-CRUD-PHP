@@ -22,39 +22,41 @@
     $logos = $cmd->Fetch();
     $logo = $logos[0];
     echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="100">');
-    
-?>
-        <!--<a class="mainHeader" id="admin" href="admins.php">Administrators</a>
-        <a class="mainHeader" id="pages" href="editor.php">Pages</a>
-        <a class="mainHeader" id="logo" href="logo.php">Logo</a>
-        <a class="mainHeader" id="public" href="index.php">Public Site</a>
-        <a class="mainHeader" id="account" href="accountMain.php">Control Panel</a>
-        <a class="mainHeader" id="logout" href="logout.php">Log Out</a>-->
-<?php
-if(isset($username)){
-    $username = $_GET['username'];
+
+    $counter = 0;
     //Selecting info from web pages table
-    $sql = "SELECT * FROM web_pages WHERE username = :username";
+    $sql = "SELECT title FROM web_pages";
     //execute sql query
     $cmd = $db->prepare($sql);
-    $cmd->bindParam(':username', $username, PDO::PARAM_STR, 100);
     $cmd->execute();
     //get info into variable students
-    $infos = $cmd->fetchAll();
-    foreach($infos as $info) {
-        echo($info['title']);
+    $pages = $cmd->fetchAll();
+    foreach($pages as $page) {
+        $counter++;
+        echo('<a class="mainHeader" href="index.php?page_id='.$counter.'">'.$page['title'].'</a>');
     }
-}
-
 ?>
+        <a class="mainHeader" href="login.php">Login</a>
     </header>
-
     <main>
 <?php
-    if(empty($username)) {
-        echo '<h1>Please input a username querystring into the url bar</h1>';
+    if(isset($_GET['page_id'])) {
+        $page_id = $_GET['page_id'];
+        //Selecting info from web pages table
+        $sql = "SELECT title, content FROM web_pages";
+        //execute sql query
+        $cmd->bindParam(':page_id', $page_id, PDO::PARAM_INT);
+        $cmd = $db->prepare($sql);
+        $cmd->execute();
+        //get info into variable students
+        $webPages = $cmd->fetchAll();
+        echo('<h1>'.$webPages[$page_id - 1]['title'].'</h1>');
+        echo('<p>'.$webPages[$page_id - 1]['content'].'</p>');
+        //foreach ($webPages as $webPage) {
+            //echo('<h1>'.$webPage['title'].'</h1><br><p>'.$webPage['content'].'<p>');
+        //}
     }
-$db = null;
+    $db = null;
 ?>
     </main>
     </body>

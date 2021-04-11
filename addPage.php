@@ -22,6 +22,7 @@
                 <label for="content">Content: </label>
                 <textarea id="content" name="content" rows="10" cols="50"></textarea>
             </div>
+            
             <!--submit button to bring me to my next page and bring over inputs-->
                 <input id="submit" type="submit" value="Submit">
             </form>

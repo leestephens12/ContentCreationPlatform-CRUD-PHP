@@ -60,3 +60,14 @@ img {
     background-color: rgb(71, 67, 67);
     color: whitesmoke;
 }
+
+main h1 {
+    text-align: center;
+}
+
+main p {
+    width: 700px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
