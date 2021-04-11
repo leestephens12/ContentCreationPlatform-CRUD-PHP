@@ -23,13 +23,13 @@
     $cmd->execute();
     $logos = $cmd->Fetch();
     $logo = $logos[0];
-    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="150">');
+    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="100">');
     $db = null;
 ?>
         <a class="mainHeader" id="admin" href="admins.php">Administrators</a>
         <a class="mainHeader" id="pages" href="editor.php">Pages</a>
         <a class="mainHeader" id="logo" href="logo.php">Logo</a>
-        <a class="mainHeader" id="public" href="public-site.php">Public Site</a>
+        <a class="mainHeader" id="public" href="index.php">Public Site</a>
         <a class="mainHeader" id="account" href="accountMain.php">Control Panel</a>
         <a class="mainHeader" id="logout" href="logout.php">Log Out</a>
 <?php
@@ -45,7 +45,6 @@
     <main>
 <?php
     //because i stored my username in a session start variable i am able to retrive and use it to greeet customer
-    session_start();
     $username = $_SESSION['username'];
     echo('<h1>Welcome '.$username.'</h1>');
 
@@ -81,7 +80,7 @@
     $db = null;
 ?>
             <!--button allows you to go to add page file-->
-            <a href="accountMain.php"><button>Back</button></a>
+            <a href="accountMain.php"><button id="back" type="button" class="btn btn-secondary btn-sm">Back</button></a>
         </main>
     </body>
 </html>

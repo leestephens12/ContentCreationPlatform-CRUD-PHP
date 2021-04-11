@@ -23,7 +23,7 @@
     $cmd->execute();
     $logos = $cmd->Fetch();
     $logo = $logos[0];
-    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="150">');
+    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="100">');
     $db = null;
 ?>
         <a class="mainHeader" id="admin" href="admins.php">Administrators</a>
@@ -78,8 +78,8 @@
     $db = null;
 ?>
             <!--button allows you to go to add page file-->
-            <button><a href="addPage.php">Add Page</a></button>
-            <a href="accountMain.php"><button>Back</button></a>
+            <a href="addPage.php"><button type="button" id="back" class="btn btn-secondary btn-sm">Add Page</button></a>
+            <a href="accountMain.php"><button id="back" ktype="button" class="btn btn-secondary btn-sm">Back</button></a>
         </main>
     </body>
 </html>

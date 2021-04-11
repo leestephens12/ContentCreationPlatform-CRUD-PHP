@@ -22,13 +22,13 @@
     $cmd->execute();
     $logos = $cmd->Fetch();
     $logo = $logos[0];
-    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="150">');
+    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="100">');
     $db = null;
 ?>
         <a class="mainHeader" id="admin" href="admins.php">Administrators</a>
         <a class="mainHeader" id="pages" href="editor.php">Pages</a>
         <a class="mainHeader" id="logo" href="logo.php">Logo</a>
-        <a class="mainHeader" id="public" href="public-site.php">Public Site</a>
+        <a class="mainHeader" id="public" href="index.php">Public Site</a>
         <a class="mainHeader" id="account" href="accountMain.php">Control Panel</a>
         <a class="mainHeader"id="logout" href="logout.php">Log Out</a>
 <?php
@@ -43,10 +43,10 @@
         </header>
         <main>
             <h1>Control Panel</h1>
-            <a href="admins.php"><button type="button" class="btn btn-primary btn-lg btn-block">Administrators</button></a>
-            <a href="editor.php"><button type="button" class="btn btn-secondary btn-lg btn-block">Pages</button></a>
-            <a href="logo.php"><button type="button" class="btn btn-secondary btn-lg btn-block">Logo</button></a>
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Public Site</button>
+            <a href="admins.php"><button>Administrators</button></a>
+            <a href="editor.php"><button>Pages</button></a>
+            <a href="logo.php"><button>Logo</button></a>
+            <a href="index.php"><button>Public Site</button></a>
         </main>
     </body>
 </html>

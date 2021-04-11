@@ -7,7 +7,7 @@
     </head>
     <body>
     <header>
-    <?php
+<?php
     session_start();
     // file name
     $username = $_SESSION['username'];
@@ -21,13 +21,14 @@
     $cmd->execute();
     $logos = $cmd->Fetch();
     $logo = $logos[0];
-    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="150">');
+    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="100">');
     $db = null;
+    
 ?>
         <a class="mainHeader" id="admin" href="admins.php">Administrators</a>
         <a class="mainHeader" id="pages" href="editor.php">Pages</a>
         <a class="mainHeader" id="logo" href="logo.php">Logo</a>
-        <a class="mainHeader" id="public" href="public-site.php">Public Site</a>
+        <a class="mainHeader" id="public" href="index.php">Public Site</a>
         <a class="mainHeader" id="account" href="accountMain.php">Control Panel</a>
         <a class="mainHeader" id="logout" href="logout.php">Log Out</a>
 <?php
@@ -42,12 +43,12 @@
     </header>
 
     <main>
-            <form method="post" action="logoUpload.php" enctype="multipart/form-data">
-                    <label for="logo">Upload a New Logo</label>
-                    <input name="logo" id="logo" type="file" accept=".gif,.jpg,.jpeg,.png,.doc,.dox" >
+        <form method="post" action="logoUpload.php" enctype="multipart/form-data">
+                <label for="logo"><h1>Upload a New Logo</h1></label>
+                <input name="logo" id="logoInpt" type="file" accept=".gif,.jpg,.jpeg,.png,.doc,.dox" >
 
-                    <input id="submit" type="submit" value="Submit">
-            </form>
+                <input id="submit" type="submit" value="Submit">
+        </form>
     </main>
     </body>
 </html>

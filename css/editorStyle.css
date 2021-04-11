@@ -1,6 +1,7 @@
 header {
     display: flex;
     background-color: rgb(71, 67, 67);
+    width: 110%;
 }
 header .mainHeader {
     margin-left: 50px;
@@ -35,4 +36,27 @@ button a{
 
 button {
     background-color: white;
+}
+
+a button {
+    background-color: rgb(71, 67, 67);
+    color: whitesmoke;
+    width: 80%;
+    padding: 20px;
+    display: flex;
+}
+
+#back {
+    width: 10%;
+}
+
+img {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+#logoInpt {
+    background-color: rgb(71, 67, 67);
+    color: whitesmoke;
 }
