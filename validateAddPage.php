@@ -10,6 +10,8 @@
     $username = $_SESSION['username'];
     $title = $_POST['title'];
     $content = $_POST['content'];
+    $backgroundColor = $_POST['backgroundColor'];
+    $fontColor = $_POST['fontColor'];
 
     //connecting to database
     $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
@@ -26,12 +28,14 @@
         //if its not then add both to the database
         else {
             try {
-                $sql = "INSERT INTO web_pages(username, title, content) VALUES(:username, :title, :content)";
+                $sql = "INSERT INTO web_pages(username, title, content, background_color, font_color) VALUES(:username, :title, :content, :backgroundColor, :fontColor)";
 
                 $cmd = $db->prepare($sql);
                 $cmd->bindParam(':username', $username, PDO::PARAM_STR, 25);
                 $cmd->bindParam(':title', $title, PDO::PARAM_STR, 50);
                 $cmd->bindParam(':content', $content, PDO::PARAM_STR, 1000);
+                $cmd->bindParam(':backgroundColor', $backgroundColor, PDO::PARAM_STR, 25);
+                $cmd->bindParam(':fontColor', $fontColor, PDO::PARAM_STR, 25);
                 $cmd->execute();
                 $db = null;
                 //redirect user back to the editor page

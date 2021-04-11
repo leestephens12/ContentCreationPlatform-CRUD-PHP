@@ -38,12 +38,12 @@
 ?>
         <a class="mainHeader" href="login.php">Login</a>
     </header>
-    <main>
+    <main id="main">
 <?php
     if(isset($_GET['page_id'])) {
         $page_id = $_GET['page_id'];
         //Selecting info from web pages table
-        $sql = "SELECT title, content FROM web_pages";
+        $sql = "SELECT title, content, background_color, font_color FROM web_pages";
         //execute sql query
         $cmd->bindParam(':page_id', $page_id, PDO::PARAM_INT);
         $cmd = $db->prepare($sql);
@@ -52,9 +52,9 @@
         $webPages = $cmd->fetchAll();
         echo('<h1>'.$webPages[$page_id - 1]['title'].'</h1>');
         echo('<p>'.$webPages[$page_id - 1]['content'].'</p>');
-        //foreach ($webPages as $webPage) {
-            //echo('<h1>'.$webPage['title'].'</h1><br><p>'.$webPage['content'].'<p>');
-        //}
+        echo('<script>document.getElementbyId("main")</script>');
+        echo('<script>main.style.setProperty("background-color", "'.$webPages[$page_id - 1]['background_color'].'");</script>');
+        echo('<script>main.style.setProperty("color", "'.$webPages[$page_id - 1]['font_color'].'");</script>');
     }
     $db = null;
 ?>

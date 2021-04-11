@@ -22,7 +22,33 @@
                 <label for="content">Content: </label>
                 <textarea id="content" name="content" rows="10" cols="50"></textarea>
             </div>
-            
+            <div class="tools">
+                <label for="backgroundColor">Background Color: </label>
+                <select name="backgroundColor" id="backgroundColor">
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="purple">Purple</option>
+                    <option value="black">Black</option>
+                    <option value="green">Green</option>
+                    <option value="pink">Pink</option>
+                    <option value="orange">Orange</option>
+                    <option value="blue">Blue</option>
+                    <option value="grey">Grey</option>
+                </select>
+
+                <label for="fontColor">Font Color: </label>
+                <select name="fontColor" id="fontColor">
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="purple">Purple</option>
+                    <option value="green">Green</option>
+                    <option value="pink">Pink</option>
+                    <option value="orange">Orange</option>
+                    <option value="blue">Blue</option>
+                    <option value="grey">Grey</option>
+                </select>
+            </div>
             <!--submit button to bring me to my next page and bring over inputs-->
                 <input id="submit" type="submit" value="Submit">
             </form>
