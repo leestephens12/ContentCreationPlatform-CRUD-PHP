@@ -34,18 +34,23 @@
 
         echo('<script>document.getElementById("title").value="'.$title.'"</script>');
         echo('<script>document.getElementById("content").value="'.$content.'"</script>');
-            //connecting to database
-        $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
-        //Deleting the page from database
-        $sql = "DELETE FROM web_pages WHERE title = :title AND content = :content AND username = :username";
-        //execute sql query
-        $cmd = $db->prepare($sql);
-        $cmd->bindParam(':title', $title, PDO::PARAM_STR, 100);
-        $cmd->bindParam(':content', $content, PDO::PARAM_STR, 1000);
-        $cmd->bindParam(':username', $username, PDO::PARAM_STR, 100);
-        $cmd->execute();
 
-    $db = null;
+        try {
+            //connecting to database
+            $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
+            //Deleting the page from database
+            $sql = "DELETE FROM web_pages WHERE title = :title AND content = :content";
+            //execute sql query
+            $cmd = $db->prepare($sql);
+            $cmd->bindParam(':title', $title, PDO::PARAM_STR, 100);
+            $cmd->bindParam(':content', $content, PDO::PARAM_STR, 1000);
+            $cmd->execute();
+
+            $db = null;
+        }
+        catch(exception $e) {
+            header('location:error.php');
+        }
     }
 ?>  
         </main>

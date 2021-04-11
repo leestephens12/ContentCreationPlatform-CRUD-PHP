@@ -12,19 +12,24 @@
     $newUsername = $_GET['newUsername'];
     $newEmail = $_GET['newEmail'];
 
-    $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
-    //Deleting the page from database
-    $sql = "UPDATE user_info SET username = :newUsername, email = :newEmail WHERE username = :oldUsername";
-    //execute sql query
-    $cmd = $db->prepare($sql);
-    $cmd->bindParam(':newUsername', $newUsername, PDO::PARAM_STR, 100);
-    $cmd->bindParam(':oldUsername', $oldUsername, PDO::PARAM_STR, 100);
-    $cmd->bindParam(':newEmail', $newEmail, PDO::PARAM_STR, 100);
-    $cmd->execute();
-    //redirect user back to the editor
-    header('location:admins.php');
+    try {
+        $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
+        //Deleting the page from database
+        $sql = "UPDATE user_info SET username = :newUsername, email = :newEmail WHERE username = :oldUsername";
+        //execute sql query
+        $cmd = $db->prepare($sql);
+        $cmd->bindParam(':newUsername', $newUsername, PDO::PARAM_STR, 100);
+        $cmd->bindParam(':oldUsername', $oldUsername, PDO::PARAM_STR, 100);
+        $cmd->bindParam(':newEmail', $newEmail, PDO::PARAM_STR, 100);
+        $cmd->execute();
+        //redirect user back to the editor
+        header('location:admins.php');
 
-    $db = null;
+        $db = null;
+    }
+    catch(exception $e) {
+        header('location:error.php');
+    }
 ?>
         <main>
     </body>

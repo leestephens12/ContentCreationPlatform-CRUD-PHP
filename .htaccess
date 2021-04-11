@@ -1,0 +1,1 @@
+ErrorDocument 404 http://localhost:8080/comp-1006/Assignment2/error404.php

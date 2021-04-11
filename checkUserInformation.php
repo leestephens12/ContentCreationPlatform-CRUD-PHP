@@ -11,16 +11,21 @@
     $password = $_POST['password'];
 
     //connecting to database
-    $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
+    try {
+        $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
 
-    $sql = "SELECT * FROM user_info WHERE username = :username";
+        $sql = "SELECT * FROM user_info WHERE username = :username";
 
-    $cmd = $db->prepare($sql);
-    $cmd->bindParam(':username', $username, PDO::PARAM_STR, 100);
-    $cmd->execute();
+        $cmd = $db->prepare($sql);
+        $cmd->bindParam(':username', $username, PDO::PARAM_STR, 100);
+        $cmd->execute();
 
-    //user id gets the username that is outputted from our database search
-    $userId = $cmd->Fetch();
+        //user id gets the username that is outputted from our database search
+        $userId = $cmd->Fetch();
+    }
+    catch(exception $e) {
+        header('location:error.php');
+    }
     //if there is no username found it will return to login page since user did not input correct username
     if(!$userId) {
         $db = null;

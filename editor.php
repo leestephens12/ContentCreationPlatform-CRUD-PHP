@@ -13,18 +13,22 @@
     session_start();
     // file name
     $username = $_SESSION['username'];
+   
+    try {
+        //connecting to database
+        $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
     
-    //connecting to database
-    $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
-    
-    $sql = "SELECT logo FROM user_info WHERE username = :username";
-    $cmd = $db->prepare($sql);
-    $cmd->bindParam(':username', $username, PDO::PARAM_STR, 30);
-    $cmd->execute();
-    $logos = $cmd->Fetch();
-    $logo = $logos[0];
-    echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="100">');
-    $db = null;
+        $sql = "SELECT logo FROM user_info";
+        $cmd = $db->prepare($sql);
+        $cmd->execute();
+        $logos = $cmd->Fetch();
+        $logo = $logos[0];
+        echo ('<img src="images/'.$logo.'" alt="movie poster" width="150" height="100">');
+        $db = null;
+    }
+    catch(exception $e) {
+        header('location:error.php');
+    }
 ?>
         <a class="mainHeader" id="admin" href="admins.php">Administrators</a>
         <a class="mainHeader" id="pages" href="editor.php">Pages</a>
@@ -32,6 +36,7 @@
         <a class="mainHeader" id="public" href="public-site.php">Public Site</a>
         <a class="mainHeader" id="account" href="accountMain.php">Control Panel</a>
         <a class="mainHeader" id="logout" href="logout.php">Log Out</a>
+
 <?php
     if('location:editor.php') {
         echo'<script>
@@ -48,34 +53,37 @@
     $username = $_SESSION['username'];
     echo('<h1>Welcome '.$username.'</h1>');
 
+    try {
+        //connecting to database
+        $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
+        //Selecting info from web pages table
+        $sql = "SELECT * FROM web_pages";
+        //execute sql query
+        $cmd = $db->prepare($sql);;
+        $cmd->execute();
+        //get info into variable students
+        $infos = $cmd->fetchAll();
 
-    //connecting to database
-    $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
-    //Selecting info from web pages table
-    $sql = "SELECT * FROM web_pages WHERE username = :username";
-    //execute sql query
-    $cmd = $db->prepare($sql);
-    $cmd->bindParam(':username', $username, PDO::PARAM_STR, 100);
-    $cmd->execute();
-    //get info into variable students
-    $infos = $cmd->fetchAll();
-
-    //creating a table that stores all current webpages so student can add, edit, delete easily
-    echo('<table class="table table-hover">
+        //creating a table that stores all current webpages so student can add, edit, delete easily
+        echo('<table class="table table-hover">
             <tr>
                 <th>Title</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>');
-    //importing all my data from database into table
-    foreach($infos as $info) {
-        echo('<tr><td><a href="viewPage.php?title='.$info['title'].'&content='.$info['content'].'">'.$info['title'].'</a></td><td><a href="addPage.php?title='.$info['title'].'&content='.$info['content'].'&username='.$info['username'].'">Edit</a></td><td><a href="deletePage.php?title='.$info['title'].'">Delete</a></td></tr>');
-    }
-    //close table
-    echo('</table>');
+        //importing all my data from database into table
+        foreach($infos as $info) {
+            echo('<tr><td><a href="viewPage.php?title='.$info['title'].'&content='.$info['content'].'">'.$info['title'].'</a></td><td><a href="addPage.php?title='.$info['title'].'&content='.$info['content'].'&username='.$info['username'].'">Edit</a></td><td><a href="deletePage.php?title='.$info['title'].'">Delete</a></td></tr>');
+        }
+        //close table
+        echo('</table>');
 
-    //dsiconnect db
-    $db = null;
+        //dsiconnect db
+        $db = null;
+    }
+    catch(exception $e) {
+        header('location:error.php');
+    }
 ?>
             <!--button allows you to go to add page file-->
             <a href="addPage.php"><button type="button" id="back" class="btn btn-secondary btn-sm">Add Page</button></a>
