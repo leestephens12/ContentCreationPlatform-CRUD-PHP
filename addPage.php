@@ -39,6 +39,7 @@
                 <label for="content">Content: </label>
                 <textarea id="content" name="content" rows="10" cols="50"></textarea>
             </div>
+            <!--Users can edit color and font color-->
             <div class="tools">
                 <label for="backgroundColor">Background Color: </label>
                 <select name="backgroundColor" id="backgroundColor">

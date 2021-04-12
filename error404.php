@@ -27,7 +27,6 @@
 <?php
     try {
         session_start();
-        // file name
         $username = $_SESSION['username'];
     
         //connecting to database
@@ -54,6 +53,7 @@
             <a class="mainHeader" id="logout" href="logout.php">Log Out</a>
         </header>
         <main>
+            <!--Error message-->
             <h1>Error</h1>
             <p id="error">There was an error while loading requested page!<br> Page not found!<p>
         </main>
