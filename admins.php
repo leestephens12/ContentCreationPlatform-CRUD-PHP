@@ -3,6 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Administrators</title>
+<?php
+    try {
+        //connecting to database
+        $db = new PDO('mysql:host=172.31.22.43;dbname=Lee1138287', 'Lee1138287', 'KpxdeDafpk');
+    
+        $sql = "SELECT logo FROM user_info";
+        $cmd = $db->prepare($sql);
+        $cmd->execute();
+        $logos = $cmd->Fetch();
+        $logo = $logos[0];
+        echo ('<link rel="shortcut icon" href="images/'.$logo.'" width="150" height="100">');
+        $db = null;
+    }
+    catch(exception $e) {
+        header('location:error.php');
+    }
+?>
         <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
         <link rel="stylesheet" href="css/editorStyle.css">
     </head>
