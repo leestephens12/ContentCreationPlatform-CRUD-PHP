@@ -7,3 +7,5 @@ my database from that point you can log in if you are adminastrator already or c
 web pages that the public will see and you can change the logofor the website as well.
 
 As the extra steps to my project, i added a section in the appPage.php file in which users can change the background-color of their page as well as the font-color.
+
+For the css for my project, for a majortiy of the buttons i used bootstrap as well as the table, but those are the only times i used it. The rest was done with independant styling work.
